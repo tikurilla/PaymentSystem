@@ -5,11 +5,14 @@ public class ConsoleView {
 
     public static int getAccountsCount() {
         int accountsCount = 0;
-        while(accountsCount <= 1) {
+        while(accountsCount <= 1 || accountsCount > AccountGenerator.getMaxAccountId()) {
             try {
                 accountsCount = ConsoleView.getValueScanner1();
                 if (accountsCount <=1 ){
                     System.out.println("Значние должно быть больше единицы.");
+                }
+                if (accountsCount > AccountGenerator.getMaxAccountId() ){
+                    System.out.println("Значние должно быть не более " + AccountGenerator.getMaxAccountId());
                 }
             }
             catch (InputMismatchException ex) {
@@ -36,7 +39,7 @@ public class ConsoleView {
     }
 
     private static int getValueScanner1() throws InputMismatchException {
-        System.out.println("Введите количество счетов (целое значение)");
+        System.out.println("Введите количество счетов (целое значение не больше " + AccountGenerator.getMaxAccountId() + ")");
         final Scanner scanner1= new Scanner(System.in);
         return scanner1.nextInt();
     }

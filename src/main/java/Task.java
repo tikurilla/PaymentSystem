@@ -19,7 +19,7 @@ public class Task implements Callable<Transaction> {
     }
 
     @Override
-    public Transaction call() throws Exception {
+    public Transaction call() {
         Random random = new Random();
         int delay = random.nextInt(1000) + DELAY_LOW_LIMIT;
         int[] twoValues = generateTwoRandomUniqueValues(accountCount);

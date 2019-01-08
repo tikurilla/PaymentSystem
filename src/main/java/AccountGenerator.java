@@ -29,4 +29,8 @@ public class AccountGenerator {
         }
         return listIDs;
     }
+
+    public static int getMaxAccountId() {
+        return MAX_ACCOUNT_ID;
+    }
 }

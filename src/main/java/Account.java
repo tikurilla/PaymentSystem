@@ -4,8 +4,6 @@ public class Account {
 
     private float moneyAmount;
 
-    private boolean accountIsOccupied;
-
     Account(String ID, float moneyAmount) {
         this.ID = ID;
         this.moneyAmount = moneyAmount;

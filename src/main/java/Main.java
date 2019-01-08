@@ -60,5 +60,4 @@ public class Main {
                 + accountList.stream().mapToDouble(Account::getMoneyAmount).sum());
         System.out.println("Количество успешных транзакций: " + counter.getCount());
     }
-
 }
