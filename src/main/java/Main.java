@@ -41,6 +41,7 @@ public class Main {
         catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+        EXECUTOR_SERVICE.shutdown();
         for(Account account: accountList) {
             System.out.println(account.toString());
             System.out.println("Транзакции по аккаунту: ");
