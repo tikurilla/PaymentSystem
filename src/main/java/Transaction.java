@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -58,8 +59,12 @@ public class Transaction {
     }
 
     private String getDateTime() {
-        return transactionTime.getHour() + ":" + transactionTime.getMinute() + ":" + transactionTime.getSecond()
-                + " " + transactionTime.getDayOfMonth() + "." + transactionTime.getMonth().getValue() + "." + transactionTime.getYear();
+        return makeNormalFormat(transactionTime.getHour())
+                + ":" + makeNormalFormat(transactionTime.getMinute())
+                + ":" + makeNormalFormat(transactionTime.getSecond())
+                + " " + makeNormalFormat(transactionTime.getDayOfMonth())
+                + "." + makeNormalFormat(transactionTime.getMonth().getValue())
+                + "." + transactionTime.getYear();
     }
 
     private void makeTransaction() {
@@ -72,5 +77,13 @@ public class Transaction {
             this.accepted = false;
         }
         logger.info(this::toString);
+    }
+
+    private String makeNormalFormat(int value) {
+        String valueStr = Integer.toString(value);
+        if (value <= 9)
+            return "0" + valueStr;
+        else
+            return valueStr;
     }
 }
